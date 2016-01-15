@@ -1,0 +1,19 @@
+{
+    "name": "bcismariu/emailoversight-php",
+    "description": "Simple PHP wrapper for EmailOversight API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bogdan Cismariu",
+            "email": "bogdan.cismariu@gmail.com"
+        }
+    ],
+    "autoload": {
+    	"psr-4": {
+    		"Bcismariu\\EmailOversight\\": "/"
+    	}
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
