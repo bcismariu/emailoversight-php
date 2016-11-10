@@ -89,6 +89,6 @@ class EmailOversight
 
 	public function parseResult($result)
 	{
-		return json_decode($result);
+		return json_decode($result, true);
 	}
 }
