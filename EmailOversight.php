@@ -81,7 +81,7 @@ class EmailOversight
 		return json_decode($result, true);
 	}
 	
-	public function isVerified($result)
+	public function validEmail($result)
 	{
 		if($result['Result'] == "Verified"){
 			return true;
