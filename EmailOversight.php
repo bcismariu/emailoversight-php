@@ -9,9 +9,7 @@ class EmailOversight
 		'listid'	=> null,
 		'email'		=> null,
 	];
-
 	protected $url = 'https://api.emailoversight.com/api/';
-
 	public function __construct($parameters = [])
 	{
 		if (gettype($parameters) == 'string') {
@@ -23,7 +21,6 @@ class EmailOversight
 			$this->setParameter($key, $value);
 		}
 	}
-
 	public function emailValidation($email, $listid = null)
 	{
 		$this->setParameter('email', $email);
@@ -33,8 +30,6 @@ class EmailOversight
 		}
 		return $this->post('emailvalidation', ['email', 'listid']);
 	}
-
-
 	protected function get($method, $parameters = [])
 	{
 		$parameters['apitoken'] = $this->parameters['apitoken'];
@@ -42,10 +37,13 @@ class EmailOversight
 		$result = file_get_contents($query);
 		return $this->parseResult($result);
 	}
-
 	protected function post($method, $parameters = [])
 	{
 		$options = [
+			"ssl"=> [
+		        	"verify_peer"=>false,
+		        	"verify_peer_name"=>false,
+    			],
 			'http'	=> [
 				'header'	=> "Content-type: application/json; charset=utf-8\r\n"
 							 . "ApiToken: " . $this->parameters['apitoken'] . "\r\n",
@@ -57,14 +55,11 @@ class EmailOversight
 		$result = file_get_contents($this->url . $method, false, $context);
 		return $this->parseResult($result);
 	}
-
-
 	protected function buildQuery($method, $parameters)
 	{
 		return $this->url . $method
 			. '?' . http_build_query($this->getApiParameters($parameters));
 	}
-
 	protected function setParameter($key, $value = null)
 	{
 		$key = strtolower(trim($key));
@@ -73,7 +68,6 @@ class EmailOversight
 		}
 		$this->parameters[$key] = $value;
 	}
-
 	protected function getApiParameters($parameters)
 	{
 		$api = [];
@@ -82,9 +76,8 @@ class EmailOversight
 		}
 		return $api;
 	}
-
 	public function parseResult($result)
 	{
-		return json_decode($result);
+		return json_decode($result, true);
 	}
 }
