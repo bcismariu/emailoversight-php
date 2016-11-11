@@ -35,6 +35,16 @@ $validator = new EmailOversight([
 $result1 = $validator->emailValidation('first.client@domain.com');
 $result2 = $validator->emailValidation('second.client@domain.com');
 ```
+Email Valid Boolean
+```
+$validEmail = $validator->isValid($result);
+
+if($validEmail) {
+ // Good Email
+}else {
+ // Bad Email
+}
+```
 
 ### Contributions
 
