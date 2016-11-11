@@ -1,6 +1,6 @@
 <?php
 
-namespace Bcismariu\EmailOversight;
+namespace Thedigit\EmailOversight;
 
 class EmailOversight
 {
@@ -46,6 +46,10 @@ class EmailOversight
 	protected function post($method, $parameters = [])
 	{
 		$options = [
+			"ssl"=> [
+		        	"verify_peer"=>false,
+		        	"verify_peer_name"=>false,
+    			],
 			'http'	=> [
 				'header'	=> "Content-type: application/json; charset=utf-8\r\n"
 							 . "ApiToken: " . $this->parameters['apitoken'] . "\r\n",
@@ -85,6 +89,6 @@ class EmailOversight
 
 	public function parseResult($result)
 	{
-		return json_decode($result);
+		return json_decode($result, true);
 	}
 }
