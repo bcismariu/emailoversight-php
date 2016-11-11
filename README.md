@@ -5,12 +5,15 @@ management and email campaigns to the next level.
 
 This is a simple PHP implementation of the API calls.
 
+### Modified version of:
+https://github.com/bcismariu/emailoversight-php
+
 ### Installation
 Update your `composer.json` file
 ```json
 {
     "require": {
-        "bcismariu/emailoversight-php": "0.*"
+        "Thedigit/emailoversight-php": "0.*"
     }
 }
 ```
@@ -18,7 +21,7 @@ Run `composer update`
 
 ### Usage
 ```php
-use Bcismariu\EmailOversight\EmailOversight;
+use Thedigit\EmailOversight\EmailOversight;
 
 $validator = new EmailOversight('YOUR_API_KEY');
 $result = $validator->emailValidation('client.email@domain.com', 'your_list_id');
