@@ -37,7 +37,7 @@ $result2 = $validator->emailValidation('second.client@domain.com');
 ```
 Email Valid Boolean
 ```
-$validEmail = $validator->validEmail($result);
+$validEmail = $validator->isVerified($result);
 
 if($validEmail) {
  // Good Email
