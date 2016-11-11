@@ -1,6 +1,6 @@
 <?php
 
-namespace Bcismariu\EmailOversight;
+namespace Thedigit\EmailOversight;
 
 class EmailOversight
 {
